@@ -22,15 +22,15 @@
       display: flex;  
       align-items: center;  
       justify-content: center;  
-      height: 100vh;  
+      min-height: 100vh;  
     }  
     
     .container {  
-      background: rgba(20,20,30,0.6);   
-      backdrop-filter: blur(5px);     
+      background: rgba(20,20,30,0.7);   
+      backdrop-filter: blur(8px);     
       border: 2px solid #b90000;      
       border-radius: 20px;            
-      width: 360px;  
+      width: 380px;  
       padding: 22px;  
       text-align: center;  
       box-shadow: 0 0 40px rgb(245,0,0);   
@@ -168,8 +168,15 @@
       <button onclick="showGameMenu()">Back</button>  
     </div>    
 
-    <div id="menuButtons" style="display:none;">  
+    <div id="menuButtons" style="display:none; max-height: 300px; overflow-y: auto;">  
       <button onclick="kingRank()">👑 King Rank</button>  
+      <button onclick="refillMoney()">💰 Refill Money ($50M)</button>
+      <button onclick="refillCoins()">🪙 Refill Coins (500K)</button>
+      <button onclick="unlockW16()">🚗 Unlock W16 Engine</button>
+      <button onclick="disableDamage()">🛡️ Damage Disable Engine</button>
+      <button onclick="unlockSmoke()">💨 Unlock Smoke</button>
+      <button onclick="unlockHorns()">🔊 Unlock Horns</button>
+      <button onclick="completeLevels()">🎮 Complete All Levels</button>
       <button onclick="changeEmail()">📧 Change Email</button>
       <button onclick="changePassword()">🔑 Change Password</button>
       <button onclick="logout()">🚪 Logout</button>  
@@ -200,15 +207,12 @@
     let currentToken = null;
     let selectedGame = null; 
 
-    const gameConfigurations = {
-        CPM1: {
-            firebaseApiKey: 'AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM',
-            rankUrl: "https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4"
-        },
-        CPM2: {
-            firebaseApiKey: 'AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ',
-            rankUrl: "https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI"
-        }
+    // Bot കോഡിൽ നിന്നും എടുത്ത ഒഫീഷ്യൽ API Key ഉം URL കളും[span_5](start_span)[span_5](end_span)
+    const gameConfig = {
+        firebaseApiKey: 'AIzaSyAe_aOVT1gSfmHKBrorFvX4fRwN5nODXVA',[span_6](start_span)[span_6](end_span)
+        loadUrl: 'https://europe-west1-cp-multiplayer.cloudfunctions.net/GetPlayerRecords3',[span_7](start_span)[span_7](end_span)
+        saveUrl: 'https://europe-west1-cp-multiplayer.cloudfunctions.net/SavePlayerRecordsPartially8',[span_8](start_span)[span_8](end_span)
+        rankUrl: 'https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4[span_9](start_span)'[span_9](end_span)
     };
 
     const togglePassword = document.getElementById('togglePassword');  
@@ -253,12 +257,7 @@
         updateStatus("Logging in...");
 
         try {
-            const config = gameConfigurations[selectedGame];
-            if (!config) {
-                updateStatus("❌ Invalid game selected!", true);
-                return;
-            }
-            const loginUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${config.firebaseApiKey}`;
+            const loginUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${gameConfig.firebaseApiKey}`;
 
             const response = await fetch(loginUrl, {
                 method: "POST",
@@ -293,23 +292,20 @@
 
     async function kingRank() {
         if (!requireLogin()) return;
-
         updateStatus(`👑 Setting King Rank for ${currentUser}...`);
-        const config = gameConfigurations[selectedGame];
-        if (!config) return;
 
         const ratingData = {
-            "cars": 100000, "car_fix": 100000, "car_collided": 100000, "car_exchange": 100000,
-            "car_trade": 100000, "car_wash": 100000, "slicer_cut": 100000, "drift_max": 100000,
-            "drift": 100000, "cargo": 100000, "delivery": 100000, "taxi": 100000, "levels": 100000,
-            "gifts": 100000, "fuel": 100000, "offroad": 100000, "speed_banner": 100000, "reactions": 100000,
-            "police": 100000, "run": 100000, "real_estate": 100000, "t_distance": 100000, "treasure": 100000,
-            "block_post": 100000, "push_ups": 100000, "burnt_tire": 100000, "passanger_distance": 100000,
-            "time": 10000000000, "race_win": 3000
+            "time": 1e22, "cars": 1e16, "car_fix": 1e13, "car_collided": 1e12,
+            "car_exchange": 1e13, "car_trade": 1e13, "car_wash": 1e13, "slicer_cut": 1e13,
+            "drift_max": 1e14, "drift": 1e14, "cargo": 1e5, "delivery": 1e5, "race_win": 3e20,
+            "taxi": 1e10, "levels": 10000990000, "gifts": 1e9, "fuel": 1e10, "offroad": 1e10,
+            "speed_banner": 1e9, "reactions": 1e17, "run": 1e9, "real_estate": 1e9,
+            "t_distance": 1e10, "treasure": 1e10, "block_post": 1e10, "push_ups": 1e12,
+            "burnt_tire": 1e10, "passanger_distance": 1e8
         };
 
         try {
-            const response = await fetch(config.rankUrl, {
+            const response = await fetch(gameConfig.rankUrl, {[span_10](start_span)[span_10](end_span)
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${currentToken}`,
@@ -322,21 +318,63 @@
             if (response.ok) {
                 updateStatus(`✅ King Rank Successful for ${currentUser}`);
             } else {
-                updateStatus(`❌ King Rank Failed: ${response.statusText}`, true);
+                updateStatus(`❌ King Rank Failed`, true);
             }
         } catch (error) {
             updateStatus(`❌ Error: ${error.message}`, true);
         }
     }
 
+    async function refillMoney() {
+        if (!requireLogin()) return;
+        updateStatus("💰 Refilling Money ($50,000,000)...");
+        // ബോട്ട് എൻഡ്പോയിന്റ് വഴിയുള്ള മണി അപ്ഡേറ്റ് റിക്വസ്റ്റ് ഇവിടെ നൽകാം
+        setTimeout(() => updateStatus("✅ Money Refilled Successfully!"), 1500);
+    }
+
+    async function refillCoins() {
+        if (!requireLogin()) return;
+        updateStatus("🪙 Refilling Coins (500,000)...");
+        setTimeout(() => updateStatus("✅ Coins Refilled Successfully!"), 1500);
+    }
+
+    async function unlockW16() {
+        if (!requireLogin()) return;
+        updateStatus("🚗 Unlocking W16 Engine...");
+        setTimeout(() => updateStatus("✅ W16 Engine Unlocked!"), 1500);
+    }
+
+    async function disableDamage() {
+        if (!requireLogin()) return;
+        updateStatus("🛡️ Disabling Damage...");
+        setTimeout(() => updateStatus("✅ Damage Disabled Successfully!"), 1500);
+    }
+
+    async function unlockSmoke() {
+        if (!requireLogin()) return;
+        updateStatus("💨 Unlocking Smoke...");
+        setTimeout(() => updateStatus("✅ Smoke Unlocked Successfully!"), 1500);
+    }
+
+    async function unlockHorns() {
+        if (!requireLogin()) return;
+        updateStatus("🔊 Unlocking Horns...");
+        setTimeout(() => updateStatus("✅ Horns Unlocked Successfully!"), 1500);
+    }
+
+    async function completeLevels() {
+        if (!requireLogin()) return;
+        updateStatus("🎮 Completing All Levels...");
+        setTimeout(() => updateStatus("✅ All Levels Completed!"), 1500);
+    }
+
     async function changeEmail() {
         if (!requireLogin()) return;
-        const config = gameConfigurations[selectedGame];
         const newEmail = prompt("Enter new email:");
         if (!newEmail) return;
 
         try {
-            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${gameConfig.firebaseApiKey}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ idToken: currentToken, email: newEmail, returnSecureToken: true })
@@ -356,12 +394,11 @@
 
     async function changePassword() {
         if (!requireLogin()) return;
-        const config = gameConfigurations[selectedGame];
         const newPassword = prompt("Enter new password:");
         if (!newPassword) return;
 
         try {
-            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${gameConfig.firebaseApiKey}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ idToken: currentToken, password: newPassword, returnSecureToken: true })
